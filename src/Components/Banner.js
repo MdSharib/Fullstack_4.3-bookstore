@@ -1,7 +1,8 @@
 import React from 'react'
 import styles from "./banner.module.css"
 import test from "../resources/banner/test.png"
-
+import viking from "../resources/banner/viking.png"
+import imageThree from "../resources/banner/image 3.png"
 import classNames from 'classnames';
 
 const Banner = () => {
@@ -12,7 +13,7 @@ const Banner = () => {
         <div className={styles.innerBanner}>
             <div className={styles.firstCard}>
                 <div className={styles.CardImg}>
-                    <img src={test} />
+                    <img src={viking} />
                 </div>
                 <div className={styles.CardContent}>
                     <div className={styles.cardTitle}>Title</div>
@@ -36,7 +37,7 @@ const Banner = () => {
             </div>
             <div className={styles.thirdCard}>
                 <div className={styles.CardImg}>
-                    <img src={test} />
+                    <img src={imageThree} />
                 </div>
                 <div className={styles.CardContent}>
                     <div className={styles.cardTitle}>Title</div>
