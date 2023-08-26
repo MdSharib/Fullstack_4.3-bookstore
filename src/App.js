@@ -1,5 +1,6 @@
 import './App.css';
 import Banner from './Components/Banner';
+import BodyContent from './Components/BodyContent';
 import Header from './Components/header';
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <Header />
       <Banner />
+      <BodyContent />
     </>
   );
 }
