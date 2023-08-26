@@ -13,43 +13,41 @@ import axios from "axios";
 const Header = () => {
   const dispatch = useDispatch();
   const books = useSelector((state) => state.books.books);
-const searchRef =  useRef();
+  const searchRef = useRef();
 
   const getSearchBooks = async (query) => {
     // console.log(object)
     // console.log("query ->", query)
-    if(query === ""){
-        const fetchData = async () => {
-            try {
-              const response1 = await axios.get(
-                "https://www.googleapis.com/books/v1/volumes?q=harry+potter"
-              );
-              const response2 = await axios.get(
-                "https://www.googleapis.com/books/v1/volumes?q=Sherlock+Holmes"
-              );
-      
-              // Combine the items from both responses
-              const combinedItems = [
-                ...response1.data.items,
-                ...response2.data.items,
-              ];
-              dispatch(addBook(combinedItems));
-            } catch (error) {
-              console.error("Error fetching data:", error);
-            }
-          };
-      
-          fetchData();
-          return;
+    if (query === "") {
+      const fetchData = async () => {
+        try {
+          const response1 = await axios.get(
+            "https://www.googleapis.com/books/v1/volumes?q=harry+potter"
+          );
+          const response2 = await axios.get(
+            "https://www.googleapis.com/books/v1/volumes?q=Sherlock+Holmes"
+          );
+
+          // Combine the items from both responses
+          const combinedItems = [
+            ...response1.data.items,
+            ...response2.data.items,
+          ];
+          dispatch(addBook(combinedItems));
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+
+      fetchData();
+      return;
     }
     try {
-        
       const response1 = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${query}`
       );
-    //   console.log(response1);
+      //   console.log(response1);
       dispatch(addBook(response1.data.items));
-      
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -69,8 +67,8 @@ const searchRef =  useRef();
           <img src={booksImg} />
         </div>
         <div className={styles.searchBar}>
-          <input type="text" placeholder="search" ref={searchRef}/>
-          <button onClick={searchHandler} >Search</button>
+          <input type="text" placeholder="search" ref={searchRef} />
+          <button onClick={searchHandler}>Search</button>
         </div>
         <div className={styles.rightIcons}>
           <img src={heart} />
